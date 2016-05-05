@@ -4,14 +4,15 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.views import generic
 
-from .models import Choice, Poll
-
+from .models import ToDo
 
 def index(request):
     return render(request, 'polls/index.html', {})
 
 def overview(request):
-    return render(request, 'polls/content/overview.html', {})
+	#highest prio should be first element in list
+    todos = ToDo.objects.order_by('priority').reverse
+    return render(request, 'polls/content/overview.html', {'todos': todos})
 
 def new(request):
     return render(request, 'polls/content/new.html', {})

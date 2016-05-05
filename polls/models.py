@@ -1,29 +1,27 @@
-import datetime
-
 from django.db import models
-from django.utils import timezone
+from django.core.validators import MinValueValidator, MaxValueValidator
 
+class ToDo(models.Model):
+    title = models.CharField(max_length=200)
 
-class Poll(models.Model):
-    question = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    priority = models.IntegerField(validators=[MinValueValidator(0),
+                                            MaxValueValidator(5)])
+
+    progress = models.IntegerField(validators=[MinValueValidator(0),
+                                            MaxValueValidator(100)])
+
+    description = models.CharField(max_length=200)
+
+    name = models.CharField(max_length=200)
+
+    deadline_day = models.IntegerField(validators=[MinValueValidator(0),
+                                                MaxValueValidator(31)])
+
+    deadline_month = models.IntegerField(validators=[MinValueValidator(0),
+                                                 MaxValueValidator(12)])
+
+    deadline_year = models.IntegerField(validators=[MinValueValidator(2016),
+                                               MaxValueValidator(2019)])
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return self.question
-
-    def was_published_recently(self):
-        now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date < now
-
-    was_published_recently.admin_order_field = 'pub_date'
-    was_published_recently.boolean = True
-    was_published_recently.short_description = 'Published recently?'
-
-
-class Choice(models.Model):
-    poll = models.ForeignKey(Poll)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
-    def __unicode__(self):  # Python 3: def __str__(self):
-        return self.choice_text
+        return self.title
