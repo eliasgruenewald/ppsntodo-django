@@ -6,5 +6,5 @@ TheToDoTracker mit Funktionalität mittels des Django-Frameworks
 `python manage.py runserver`<br />
 <br />
 [http://localhost:8000/](http://localhost:8000/)<br />
-[http://localhost:8000/](http://localhost:8000/todo)<br />
-[http://localhost:8000/](http://localhost:8000/admin)<br />
+[http://localhost:8000/](http://localhost:8000/todo/)<br />
+[http://localhost:8000/](http://localhost:8000/admin/)<br />
