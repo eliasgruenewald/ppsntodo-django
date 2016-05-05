@@ -2,9 +2,9 @@
 TheToDoTracker mit Funktionalität mittels des Django-Frameworks
 
 # Starten des Servers
-`cd ppsntodo-django/`
-`python manage.py runserver`
-
-[http://localhost:8000/](http://localhost:8000/)
-[http://localhost:8000/](http://localhost:8000/todo)
-[http://localhost:8000/](http://localhost:8000/admin)
+`cd ppsntodo-django/` <br />
+`python manage.py runserver`<br />
+<br />
+[http://localhost:8000/](http://localhost:8000/)<br />
+[http://localhost:8000/](http://localhost:8000/todo)<br />
+[http://localhost:8000/](http://localhost:8000/admin)<br />
