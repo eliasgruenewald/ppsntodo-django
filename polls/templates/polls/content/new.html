@@ -1,0 +1,180 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="de">
+   <head>
+      <link rel="shortcut icon" href="{% static 'icons/Checked_icon_16x16.png' %}" type="image/png" />
+      <link rel="icon" href="{% static 'icons/Checked_icon_16x16.png' %}" type="image/png" />
+
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title>TTT-TheToDoTracker</title>
+
+      <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+   </head>
+
+
+   <body>
+      
+
+<nav class="navbar navbar-default">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="/">TheToDoTracker</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                  <li><a href="/overview/">Overview</a></li>
+                  <li><a href="/new/">New</a></li>
+                  <li><a href="/edit/">Edit</a></li>
+                  <li><a href="/imprint/">Imprint</a></li>
+               </ul>
+               <div class="navbar-form navbar-right">
+                  <form role="search">
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                     </div>
+                     <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </nav>
+
+	<!-- content's following now... -->
+
+	<div class="container">  
+		<h1>What's your task?</h1>
+
+		<div class="form-group">
+			<label for="title">Title:</label>
+			<input type="text" class="form-control input-lg" id="inputlg">
+		</div>
+
+		<div class="form-group">
+			<label for="selectPrio">Priority:</label><br />
+
+			<span class="label label-default">low</span>
+
+			<div class="btn-group" role="group" aria-label="prioGroup">
+				<button type="button" class="btn btn-default">1</button>
+				<button type="button" class="btn btn-default">2</button>
+				<button type="button" class="btn btn-default">3</button>
+				<button type="button" class="btn btn-default">4</button>
+				<button type="button" class="btn btn-default">5</button>
+			</div>
+
+			<span class="label label-danger">high</span>
+		</div>
+
+		<form class="form-inline">
+			<label for="selectPrio">Progress achieved?</label>
+			<select class="form-control">
+				<option>0%</option>
+				<option>10%</option>
+				<option>20%</option>
+				<option>30%</option>
+				<option>40%</option>
+				<option>50%</option>
+				<option>60%</option>
+				<option>70%</option>
+				<option>80%</option>
+				<option>90%</option>
+				<option>100%</option>
+			</select>
+	</form>
+
+
+	<div class="form-group">
+		<label for="comment">Description:</label>
+		<textarea class="form-control" rows="7" id="comment"></textarea>
+	</div>
+
+
+	<div class="form-group">
+		<label for="usr">Name:</label>
+		<input type="text" class="form-control" id="usr">
+	</div>
+
+
+	<label>Deadline:</label>
+
+	<form class="form-inline">
+
+		Day:
+		<select class="form-control">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			<option>7</option>
+			<option>8</option>
+			<option>9</option>
+			<option>10</option>
+			<option>11</option>
+			<option>12</option>
+			<option>13</option>
+			<option>14</option>
+			<option>15</option>
+			<option>16</option>
+			<option>17</option>
+			<option>18</option>
+			<option>19</option>
+			<option>20</option>
+			<option>21</option>
+			<option>22</option>
+			<option>23</option>
+			<option>24</option>
+			<option>25</option>
+			<option>26</option>
+			<option>27</option>
+			<option>28</option>
+			<option>29</option>
+			<option>30</option>
+			<option>31</option>
+		</select>
+
+		Month:
+		<select class="form-control">
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>6</option>
+			<option>7</option>
+			<option>8</option>
+			<option>9</option>
+			<option>10</option>
+			<option>11</option>
+			<option>12</option>
+		</select>
+
+		Year:
+		<select class="form-control">
+			<option>2016</option>
+			<option>2017</option>
+			<option>2018</option>
+			<option>2019</option>
+		</select>
+	</form>
+
+	<p>
+		<div class="form-group">
+			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-tag"></span> Create ToDo</button>
+		</div>
+	</p>
+
+</div>
+</div>
+
+</body>
+</html>
