@@ -53,8 +53,8 @@
 		<h1>What's your task?</h1>
 
 		<div class="form-group">
-			<label for="title">Title:</label>
-			<input type="text" class="form-control input-lg" id="inputlg">
+			<label for="{{ form.title.name }}">Title:</label>
+			<input name="{{ form.title.name }}" type="text" class="form-control input-lg" id="inputlg">
 		</div>
 
 		<div class="form-group">
@@ -168,7 +168,7 @@
 	</form>
 
 	<p>
-		<div class="form-group">
+		<div class="form-group">{% csrf_token %}
 			<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-tag"></span> Create ToDo</button>
 		</div>
 	</p>
