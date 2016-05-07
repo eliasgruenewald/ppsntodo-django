@@ -35,7 +35,13 @@ def new(request):
        
 
 def edit(request):
-    return render(request, 'polls/content/edit.html', {}) 
+    form = ToDoForm()
+    if request.method == "POST":
+        form = ToDoForm(request.POST) #if no files
+        todo = ToDo.objects.get(title=request.POST['search'])
+        return render(request, 'polls/content/edit.html', {'todo': todo})
+    else:
+        return render(request, 'polls/content/edit.html', {}) 
 
 def imprint(request):
     return render(request, 'polls/content/imprint.html', {})
