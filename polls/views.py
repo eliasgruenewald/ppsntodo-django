@@ -18,14 +18,6 @@ def overview(request):
     return render(request, 'polls/content/overview.html', {'todos': todos})
 
 def new(request):
-    # if request.method == "POST":
-    #     form = ToDoForm(request.POST)
-    #     post = form.save()
-    #     return redirect('polls/content/overview.html')
-    # else:
-    #     form = ToDoForm()
-    #     return render(request, 'polls/content/new.html', {'form': form})
-
     form = ToDoForm()
     if request.method == "POST":
         form = ToDoForm(request.POST) #if no files
