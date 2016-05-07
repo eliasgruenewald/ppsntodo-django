@@ -27,7 +27,20 @@ def new(request):
     #     return render(request, 'polls/content/new.html', {'form': form})
 
     form = ToDoForm()
-    return render(request, 'polls/content/new.html', {'form': form})        
+    if request.method == "POST":
+        form = ToDoForm(request.POST) #if no files
+        progressFromPost = request.POST['progress']
+        progressToNum = progressFromPost.split("%")
+        new2_todo = ToDo.objects.create(title=request.POST['title'],
+                                        name=request.POST['name'],description=request.POST['description'],
+                                        deadline_day=request.POST['day'],deadline_month=request.POST['month'],
+                                        deadline_year=request.POST['year'],progress=progressToNum[0],priority=2,)
+        new2_todo.save()
+        return redirect('/overview/')
+    else:
+        form = ToDoForm()
+        return render(request, 'polls/content/new.html', {'form': form})
+       
 
 def edit(request):
     return render(request, 'polls/content/edit.html', {}) 
