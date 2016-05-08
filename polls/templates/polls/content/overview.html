@@ -47,7 +47,6 @@
       </nav>
 
 
-    {{ todo }}
 
 
 <div class="container">  
@@ -69,7 +68,7 @@
     <tbody>
     {% for todo in todos %}
       <tr>
-        <td>{{ todo.title }}</td>
+        <td name="title">{{ todo.title }}</td>
 		<td>{{ todo.name }}</td>
 		<td>{{ todo.deadline_day }}.{{ todo.deadline_month }}.{{ todo.deadline_year }}</td>
         <td>
@@ -80,8 +79,14 @@
 			</div>
 		</td>
 		<td>
-    	<a class="btn btn-default" href="/edit/">Edit</a>
-			<button class="btn btn-danger">Delete</button>
+		<form>
+		<button type="submit" formmethod="post" formaction="/overEdit/" class="btn btn-default">Edit</button>
+				<!-- Just to know this is only for the Django freamwork!-->
+				{% csrf_token %}
+		 		<input type="hidden" name="id" value="{{ todo.id }}">
+				<!-- ------------------------------------------------- !-->
+		<button type="submit" formmethod="post" formaction="/delete/" class="btn btn-danger ">Delete</button>
+		</form>
 		</td>
       </tr>
       {% endfor %}

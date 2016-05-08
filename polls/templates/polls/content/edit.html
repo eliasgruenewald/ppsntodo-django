@@ -76,16 +76,20 @@ function fillSelecters() {
 	{% csrf_token %}
         <div class="form-inline">
           <input type="text" name="search" class="form-control input-lg" placeholder="Enter title...">
-          <button type="submit" class="btn btn-primary btn-lg">Find ToDo</button>
+          <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-search"></span> Find ToDo</button>
         </div>
         </form>
   </p>
 
   <hr>
-
+		<form method="POST" action="/update/">
+		{% csrf_token %}
+		<!-- Just to know this is only for the Django freamwork!-->
+		 <input type="hidden" name="id" value="{{ todo.id }}">
+		<!-- ------------------------------------------------- !-->
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control input-lg" id="inputlg" value="{{ todo.title }}">
+      <input type="text" name="title" class="form-control input-lg" id="inputlg" value="{{ todo.title }}">
     </div>
 
     <div class="form-group">
@@ -104,7 +108,7 @@ function fillSelecters() {
       <span class="label label-danger">high</span>
     </div>
 
-    <form class="form-inline">
+    <div class="form-inline">
       <label for="selectPrio">Progress achieved?</label>
       <select name="progress" id="progress" class="form-control">
         <option>0%</option>
@@ -119,23 +123,23 @@ function fillSelecters() {
         <option>90%</option>
         <option>100%</option>
       </select>
-    </form>
+    </div>
 
     <div class="form-group">
       <label for="comment">Description:</label>
-      <textarea class="form-control" rows="7" id="comment">{{ todo.description }}</textarea>
+      <textarea name="description" class="form-control" rows="7" id="comment">{{ todo.description }}</textarea>
     </div>
 
 
     <div class="form-group">
       <label for="usr">Name:</label>
-      <input type="text" class="form-control" id="usr" value="{{ todo.name }}">
+      <input name="name" type="text" class="form-control" id="usr" value="{{ todo.name }}">
     </div>
 
 
     <label>Deadline:</label>
 
-    <form class="form-inline">
+    <div class="form-inline">
       Day:
       <select name="day" id="day" class="form-control">
         <option>1</option>
@@ -194,35 +198,15 @@ function fillSelecters() {
         <option>2018</option>
         <option>2019</option>
       </select>
-    </form>
+    </div>
 
     <p>
       <div class="form-group">
-        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-repeat"></span> Update ToDo</button>
-        <button type="button" class="btn btn-danger "><span class="glyphicon glyphicon-remove"></span> Delete ToDo</button>
+        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-repeat"></span> Update ToDo</button>
+        <button type="submit" formmethod="post" formaction="/delete/" class="btn btn-danger "><span class="glyphicon glyphicon-remove"></span> Delete ToDo</button>
       </div>
     </p>
-
-----------------------------------------------
-
-      <tr>
-        <td>{{ todo.title }}</td>
-		<td>{{ todo.name }}</td>
-		<td>{{ todo.deadline_day }}.{{ todo.deadline_month }}.{{ todo.deadline_year }}</td>
-        <td>
-			<div class="progress">
-  			<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ todo.progress }}%;">
-    				{{ todo.progress }}%
-  			</div>
-			</div>
-		</td>
-		<td>
-    	<a class="btn btn-default" href="/edit/">Edit</a>
-			<button class="btn btn-danger">Delete</button>
-		</td>
-      </tr>
-
------------------------------------------------
+</form>
 
   </div><!--###-->
 </div> <!--###-->
