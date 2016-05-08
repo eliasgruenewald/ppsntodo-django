@@ -1,21 +1,16 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="de">
    <head>
       <link rel="shortcut icon" href="{% static 'icons/Checked_icon_16x16.png' %}" type="image/png" />
       <link rel="icon" href="{% static 'icons/Checked_icon_16x16.png' %}" type="image/png" />
-
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <title>TTT-TheToDoTracker</title>
-
+      <title>TTT &mdash; TheToDoTracker</title>
       <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
       <link rel="stylesheet" href="{% static 'css/footer.css' %}">
    </head>
-
    <body>
       <nav class="navbar navbar-default">
          <div class="container-fluid">
@@ -36,7 +31,7 @@
                <div class="navbar-form navbar-right">
                   <form role="search">
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Type in any task...">
                      </div>
                      <button type="submit" class="btn btn-default">Submit</button>
                   </form>
@@ -44,26 +39,21 @@
             </div>
          </div>
       </nav>
-
-
       <div class="container">
          <br>
          <h1>TheToDoTracker</h1>
          <br>
-         <h2>Hey,</h2>
-         this is TheToDoTracker. You won't believe it but it's availabile on <a href="https://github.com/eliasgruenewald/">GitHub</a>.
-
-         <img src="{% static 'media/calendar.png' %}" class="img-responsive" alt="Calendar picture currently not available." width="256" height="auto">
-
+         <h3>Hey,</h3>
+         this is TheToDoTracker  &mdash;  you won't believe it but it's availabile on <a href="https://github.com/eliasgruenewald/ppsntodo-django">GitHub</a>.
          <hr>
-         <div>Icons made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+         <img src="{% static 'media/calendar.png' %}" class="img-responsive" alt="Calendar picture currently not available." width="200" height="auto">
+         <hr>
+         <div>(Icon made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> <br> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> <br> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>)</div>
       </div>
-
-
       <footer class="footer">
          <div class="container">
             <div class="container_footer">
-               <p class="text-muted_footer">(c) TheToDoTracker-Team 2016</p>
+               <p class="text-muted_footer">&copy;  2016  &mdash;  TheToDoTracker  &mdash;  <a href="https://github.com/eliasgruenewald/ppsntodo-django">Documentation</a></p>
             </div>
          </div>
       </footer>

@@ -9,25 +9,25 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>TTT-TheToDoTracker</title>
+      <title>TTT &mdash; TheToDoTracker</title>
 
       <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
       <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 <script type="text/javascript">
 
-function fillSelecters() {
+function fillSelectors() {
 	
     /* chose the day */
-	var temp="{{ todo.deadline_day }}"; 
+	var temp = "{{ todo.deadline_day }}"; 
     $("#day").val(temp);
 	/* chose the month */
-	var temp="{{ todo.deadline_month }}"; 
+	var temp = "{{ todo.deadline_month }}"; 
     $("#month").val(temp);
 	/* chose the year */
-	var temp="{{ todo.deadline_year }}"; 
+	var temp = "{{ todo.deadline_year }}"; 
     $("#year").val(temp);
 	/* chose the progress */
-    var temp="{{ todo.progress }}"+"%"; 
+  var temp = "{{ todo.progress }}"+"%"; 
     $("#progress").val(temp);
 	
 }
@@ -35,7 +35,7 @@ function fillSelecters() {
 
    </head>
 
-   <body onload="fillSelecters()">
+   <body onload="fillSelectors()">
       
 
      <nav class="navbar navbar-default">
@@ -59,7 +59,7 @@ function fillSelecters() {
                      <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                      </div>
-                     <button type="submit" class="btn btn-default">Submit</button>
+                     <button type="submit" class="btn btn-default">Enter title...</button>
                   </form>
                </div>
             </div>
@@ -69,8 +69,6 @@ function fillSelecters() {
 
   <div class="container">  
     <h1>Which task would you like to edit?</h1>
-
-
     <p>
     <form role="search" method="POST">
 	{% csrf_token %}
@@ -84,9 +82,9 @@ function fillSelecters() {
   <hr>
 		<form method="POST" action="/update/">
 		{% csrf_token %}
-		<!-- Just to know this is only for the Django freamwork!-->
+		<!-- Just to know this is only for the Django framework!-->
 		 <input type="hidden" name="id" value="{{ todo.id }}">
-		<!-- ------------------------------------------------- !-->
+		<!-- ................................................. !-->
     <div class="form-group">
       <label for="title">Title:</label>
       <input type="text" name="title" class="form-control input-lg" id="inputlg" value="{{ todo.title }}">
@@ -210,6 +208,14 @@ function fillSelecters() {
 
   </div><!--###-->
 </div> <!--###-->
+
+   <footer class="footer">
+         <div class="container">
+            <div class="container_footer">
+               <p class="text-muted_footer">&copy;  2016  &mdash;  TheToDoTracker  &mdash;  <a href="https://github.com/eliasgruenewald/ppsntodo-django">Documentation</a></p>
+            </div>
+         </div>
+      </footer>   
 
 <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
