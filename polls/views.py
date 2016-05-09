@@ -16,10 +16,8 @@ def delete(request):
     if request.method == "POST":
         todo = ToDo.objects.get(id=request.POST['id'])
         todo.delete()
-        return redirect('/overview/')
-    else:
-        return render(request, 'polls/content/edit.html', {}) 
-
+    return redirect('/overview/')
+    
 def update(request):
     if request.method == "POST":
         todo = ToDo.objects.get(id=request.POST['id'])
@@ -50,9 +48,13 @@ def new(request):
         progressFromPost = request.POST['progress']
         progressToNum = progressFromPost.split("%")
         new2_todo = ToDo.objects.create(title=request.POST['title'],
-                                        name=request.POST['name'],description=request.POST['description'],
-                                        deadline_day=request.POST['day'],deadline_month=request.POST['month'],
-                                        deadline_year=request.POST['year'],progress=progressToNum[0],priority=request.POST['priority'],)
+                                        name=request.POST['name'], 
+                                        description=request.POST['description'],
+                                        deadline_day=request.POST['day'],
+                                        deadline_month=request.POST['month'],
+                                        deadline_year=request.POST['year'],
+                                        progress=progressToNum[0],
+                                        priority=request.POST['priority'])
         new2_todo.save()
         return redirect('/overview/')
     else:
@@ -70,9 +72,7 @@ def edit(request):
     form = ToDoForm()
     if request.method == "POST":
         form = ToDoForm(request.POST) # if no files
-        # todo = ToDo.objects.get(title=request.POST['search'])
         todo = ToDo.objects.get(title__contains=request.POST['search']) # less typing required
-
         return render(request, 'polls/content/edit.html', {'todo': todo})
     else:
         return render(request, 'polls/content/edit.html', {}) 
@@ -80,10 +80,10 @@ def edit(request):
 def imprint(request):
     return render(request, 'polls/content/imprint.html', {})
 
-def search(request):
-    if request.method == "POST":
-        todos = ToDo.objects.get(id=request.POST['bigSearch'])
-        return render(request, 'polls/content/search.html', {'todos': todos})
-    else:
-        error = "Sorry, something went wrong! :("
-        return render(request, 'polls/index.html', {'error': error})        
+#def search(request):
+#    if request.method == "POST":
+#        todos = ToDo.objects.get(title__contains=request.POST['bigSearch'])
+#        return render(request, 'polls/content/search.html', {'todos': todos})
+#    else:
+#        error = "Sorry, something went wrong! :("
+#        return render(request, 'polls/index.html', {'error': error})

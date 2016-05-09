@@ -70,10 +70,8 @@
                   <td>
                      <form>
                         <button type="submit" formmethod="post" formaction="/overEdit/" class="btn btn-default">Edit</button>
-                        <!-- Just to know this is only for the Django freamwork!-->
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ todo.id }}">
-                        <!-- ........................................... !-->
                         <button type="submit" formmethod="post" formaction="/delete/" class="btn btn-danger ">Delete</button>
                      </form>
                   </td>

@@ -28,7 +28,7 @@
                   <li><a href="/edit/">Edit</a></li>
                   <li><a href="/imprint/">Imprint</a></li>
                </ul>
-               <div class="navbar-form navbar-right">
+               <!--div class="navbar-form navbar-right">
                   <form role="bigSearch" method="POST">
                   {% csrf_token %}
                      <div class="form-group">
@@ -36,7 +36,7 @@
                      </div>
                      <button type="submit" class="btn btn-default">Submit</button>
                   </form>
-               </div>
+               </div-->
             </div>
          </div>
       </nav>
@@ -70,10 +70,8 @@
                   <td>
                      <form>
                         <button type="submit" formmethod="post" formaction="/overEdit/" class="btn btn-default">Edit</button>
-                        <!-- Just to know this is only for the Django freamwork!-->
                         {% csrf_token %}
                         <input type="hidden" name="id" value="{{ todo.id }}">
-                        <!-- ........................................... !-->
                         <button type="submit" formmethod="post" formaction="/delete/" class="btn btn-danger ">Delete</button>
                      </form>
                   </td>

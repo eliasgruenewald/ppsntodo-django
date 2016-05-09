@@ -11,5 +11,5 @@ class ToDo(models.Model):
     deadline_month = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(12)])
     deadline_year = models.IntegerField(validators=[MinValueValidator(2016), MaxValueValidator(2019)])
 
-    def __unicode__(self):  # Python 3: def __str__(self):
+    def __unicode__(self):  # def __str__(self):
         return self.title
