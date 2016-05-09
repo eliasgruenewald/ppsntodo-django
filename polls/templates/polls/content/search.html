@@ -29,7 +29,7 @@
                   <li><a href="/imprint/">Imprint</a></li>
                </ul>
                <div class="navbar-form navbar-right">
-                  <form role="bigSearch" method="POST">
+                  <form role="search" method="POST">
                   {% csrf_token %}
                      <div class="form-group">
                         <input type="text" name="bigSearch" class="form-control" placeholder="Which one?">
@@ -41,7 +41,7 @@
          </div>
       </nav>
       <div class="container">
-         <h1>Have a look at your current ToDos!</h1>
+         <h1>Your matching results are...</h1>
          <p>
          </p>
          <table class="table table-striped">

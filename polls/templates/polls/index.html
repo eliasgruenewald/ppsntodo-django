@@ -29,9 +29,10 @@
                   <li><a href="/imprint/">Imprint</a></li>
                </ul>
                <div class="navbar-form navbar-right">
-                  <form role="search">
+                  <form role="bigSearch" method="POST">
+                  {% csrf_token %}
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Type in any task...">
+                        <input type="text" name="bigSearch" class="form-control" placeholder="Type in any task...">
                      </div>
                      <button type="submit" class="btn btn-default">Submit</button>
                   </form>
@@ -40,8 +41,7 @@
          </div>
       </nav>
       <div class="container">
-         <br>
-         <h1>TheToDoTracker</h1>
+         <h1>TheToDoTracker<br><i>{{ error }}</i></h1>
          <br>
          <h3>Hey,</h3>
          this is TheToDoTracker  &mdash;  you won't believe it but it's availabile on <a href="https://github.com/eliasgruenewald/ppsntodo-django">GitHub</a>.

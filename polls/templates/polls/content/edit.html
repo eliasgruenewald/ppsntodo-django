@@ -13,25 +13,26 @@
 
       <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
       <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-<script type="text/javascript">
-
-function fillSelectors() {
-	
-    /* chose the day */
-	var temp = "{{ todo.deadline_day }}"; 
-    $("#day").val(temp);
-	/* chose the month */
-	var temp = "{{ todo.deadline_month }}"; 
-    $("#month").val(temp);
-	/* chose the year */
-	var temp = "{{ todo.deadline_year }}"; 
-    $("#year").val(temp);
-	/* chose the progress */
-  var temp = "{{ todo.progress }}"+"%"; 
-    $("#progress").val(temp);
-	
-}
-</script>
+      <script type="text/javascript">
+      
+      function fillSelectors() {
+        /* choose the day */
+      	var temp = "{{ todo.deadline_day }}"; 
+          $("#day").val(temp);
+      	/* choose the month */
+      	var temp = "{{ todo.deadline_month }}"; 
+          $("#month").val(temp);
+      	/* choose the year */
+      	var temp = "{{ todo.deadline_year }}"; 
+          $("#year").val(temp);
+      	/* choose the progress */
+        var temp = "{{ todo.progress }}"+"%"; 
+          $("#progress").val(temp);
+        /* choose the priority */
+        var temp = "{{ todo.priority }}"; 
+          $("#priority").val(temp);
+      }
+      </script>
 
    </head>
 
@@ -55,11 +56,12 @@ function fillSelectors() {
                   <li><a href="/imprint/">Imprint</a></li>
                </ul>
                <div class="navbar-form navbar-right">
-                  <form role="search">
+                  <form role="search" method="POST">
+                  {% csrf_token %}
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="bigSearch" class="form-control" placeholder="Enter title...">
                      </div>
-                     <button type="submit" class="btn btn-default">Enter title...</button>
+                     <button type="submit" class="btn btn-default">Search</button>
                   </form>
                </div>
             </div>
@@ -90,20 +92,29 @@ function fillSelectors() {
       <input type="text" name="title" class="form-control input-lg" id="inputlg" value="{{ todo.title }}">
     </div>
 
-    <div class="form-group">
-      <label for="selectPrio">Priority:</label><br />
+    <div class="form-inline">
+      <label for="priority">Priority:</label><br />
 
-      <span class="label label-default">low</span>
+      <span class="label label-default">1: low</span>
 
-      <div class="btn-group" role="group" aria-label="prioGroup">
-        <button type="button" class="btn btn-default">1</button>
-        <button type="button" class="btn btn-default">2</button>
-        <button type="button" class="btn btn-default">3</button>
-        <button type="button" class="btn btn-default">4</button>
-        <button type="button" class="btn btn-default">5</button>
-      </div>
+      <!-- div class="btn-group" role="group" aria-label="prioGroup">
+        <button type="button" class="btn btn-default disabled">1</button>
+        <button type="button" class="btn btn-default disabled">2</button>
+        <button type="button" class="btn btn-default disabled">3</button>
+        <button type="button" class="btn btn-default disabled">4</button>
+        <button type="button" class="btn btn-default disabled">5</button>
+      </div -->
 
-      <span class="label label-danger">high</span>
+      <!--div class="form-inline"-->
+      <select name="priority" id="priority" class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    <!--/div -->
+      <span class="label label-danger">5: high</span>
     </div>
 
     <div class="form-inline">
