@@ -1,5 +1,5 @@
 # TheToDoTracker
-basierend auf dem statischen [https://github.com/eliasgruenewald/ppsntodo](ppsntodo) mit Funktionalität mittels des Django-Frameworks
+basierend auf dem statischen [ppsntodo](https://github.com/eliasgruenewald/ppsntodo) mit Funktionalität mittels des Django-Frameworks
 <br />
 # Installation
 `git clone https://github.com/eliasgruenewald/ppsntodo-django.git` <br />
@@ -12,3 +12,8 @@ basierend auf dem statischen [https://github.com/eliasgruenewald/ppsntodo](ppsnt
 <br />
 [http://localhost:8000/](http://localhost:8000/)<br />
 [http://localhost:8000/admin](http://localhost:8000/admin/)<br />
+
+
+## Programmierpraktikum: Soziale Netzwerke
+Fachgebiet CIT<br />
+Technische Universität Berlin
